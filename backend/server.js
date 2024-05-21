@@ -12,6 +12,11 @@ const db = mysql.createConnection({
     database: 'sameep_mysql_db'
 })
 
+db.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
+
 app.get('/', (req, res) => {
     return res.json("From backend side");
 })

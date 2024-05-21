@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 function App() {
   const [data, setData] = useState([])
   useEffect(()=> {
-    fetch(`sameep-database-rds-mysql-1.cmuokqciitb8.us-east-1.rds.amazonaws.com:8080/users`)
+    fetch('http://54.226.49.106:8080/users')
     .then(res => res.json())
     .then(data => setData(data))
     .catch(err => console.log(err));
@@ -12,12 +12,14 @@ function App() {
     <div style={{padding: "50px"}}>
       <table>
         <thead>
+          <tr>
           <th>ID</th>
           <th>Name</th>
           <th>Joined At</th>
+          </tr>
         </thead>
         <tbody>
-          {data.map(d => (
+          {data.map((d,i) => (
             <tr key={i}>
               <td>{d.id}</td>
               <td>{d.first_name}</td>
@@ -28,7 +30,7 @@ function App() {
       </table>
       
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
