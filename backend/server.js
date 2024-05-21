@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res)=>{
-    const sql = "SELECT * FROM users";
+    const sql = "SELECT * FROM employees";
     db.query(sql, (err, data)=> {
         if(err) return res.json(err);
         return res.json(data);
