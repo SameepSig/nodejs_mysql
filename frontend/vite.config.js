@@ -4,4 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    host: '0.0.0.0', // This will make the server accessible on your local network
+    port: 5173, // You can change the port if needed
+  }  
 })
