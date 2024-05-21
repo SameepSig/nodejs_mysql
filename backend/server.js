@@ -29,6 +29,21 @@ app.get('/users', (req, res)=>{
     })
 })
 
+// API endpoint to handle form submission
+app.post('/submit-form', (req, res) => {
+    const { name } = req.body;
+    const sql = 'INSERT INTO employees (first_name) VALUES (?)';
+    db.query(sql, [first_name], (err, result) => {
+        if (err) {
+            console.error('Error inserting data:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.status(200).send('Data successfully inserted');
+    });
+});
+
+
 app.listen(8080, () => {
     console.log("Listening");
 })

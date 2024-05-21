@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import FormComponent from './FormComponent';
 
 function App() {
   const [data, setData] = useState([])
@@ -28,7 +29,7 @@ function App() {
           ))}
         </tbody>
       </table>
-      
+      <FormComponent />      
     </div>
   );
 }
